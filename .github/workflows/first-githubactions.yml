@@ -1,9 +1,14 @@
-name: RunShell Commands
-on: [push]
+name: DAST trigger
+on:
+  push:
+    branches: [ mydev ]
 
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 jobs:
-  run-shell-command:
-    runs-on: ubuntu-latest
+  dast_security_scan:
+    runs-on: wasptree/veracode-dast-scan
+   
     steps:
-      - name: Echo a string
-        run: echo "Hello Security Gurus"
+    - name: DAST
+     run: veracode-dast-scan vid: '${{ secrets.VERACODE_API_ID }}' vkey: '${{ secrets.VERACODE_API_KEY }}' -scan MyGruyere
