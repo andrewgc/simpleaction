@@ -7,8 +7,9 @@ on:
   workflow_dispatch:
 jobs:
   dast_security_scan:
-    runs-on: wasptree/veracode-dast-scan
-   
+    runs-on: ubuntu-latest   
     steps:
     - name: DAST
-     run: veracode-dast-scan vid: '${{ secrets.VERACODE_API_ID }}' vkey: '${{ secrets.VERACODE_API_KEY }}' -scan MyGruyere
+    uses: docker://wasptree/veracode-dast-scan
+    with:
+      args: run: veracode-dast-scan vid: '${{ secrets.VERACODE_API_ID }}' vkey: '${{ secrets.VERACODE_API_KEY }}' -scan MyGruyere
