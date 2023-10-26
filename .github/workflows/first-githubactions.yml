@@ -9,4 +9,4 @@ jobs:
     image: docker://wasptree/veracode-dast-scan
     steps:
     - name: DAST
-      run: /bin/sh -c "veracode-dast-scan vid: '${{ secrets.VERACODE_API_ID }}' vkey: '${{ secrets.VERACODE_API_KEY }}' -scan MyGruyere"
+        run: /bin/sh -c "veracode-dast-scan vid: '${{ secrets.VERACODE_API_ID }}' vkey: '${{ secrets.VERACODE_API_KEY }}' -scan MyGruyere"
