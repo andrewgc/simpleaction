@@ -13,4 +13,4 @@ jobs:
     uses: docker://wasptree/veracode-dast-scan
     with:
       args: >- 
-      veracode-dast-scan vid: '${{ secrets.VERACODE_API_ID }}' vkey: '${{ secrets.VERACODE_API_KEY }}' -scan MyGruyere
+      -v veracode-dast-scan vid: '${{ secrets.VERACODE_API_ID }}' vkey: '${{ secrets.VERACODE_API_KEY }}' -scan MyGruyere
