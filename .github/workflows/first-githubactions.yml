@@ -2,16 +2,11 @@ name: DAST trigger
 on:
   push:
     branches: [ mydev ]
-
-# Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 jobs:
   dast_security_scan:
-    runs-on: ubuntu-latest   
+    runs-on: ubuntu-latest 
+    container:
+    image: docker://wasptree/veracode-dast-scan
     steps:
     - name: DAST
-    uses: docker://wasptree/veracode-dast-scan
-    with:
-      args: >- 
-      -v ${{ github.workspace }}:/var/www
-      /bin/sh -c "veracode-dast-scan vid: '${{ secrets.VERACODE_API_ID }}' vkey: '${{ secrets.VERACODE_API_KEY }}' -scan MyGruyere"
+      run: /bin/sh -c "veracode-dast-scan vid: '${{ secrets.VERACODE_API_ID }}' vkey: '${{ secrets.VERACODE_API_KEY }}' -scan MyGruyere"
