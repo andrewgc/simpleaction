@@ -11,4 +11,4 @@ jobs:
       run: |
         wget https://gitlab.com/wasptree/veracode-dast-scan/-/archive/latest/veracode-dast-scan-latest.zip
         unzip veracode-dast-scan-latest.zip && cd veracode-dast-scan-latest
-        python3 veracode_dast_scan.py --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" -scan MyGruyere
+        python3 veracode_dast_scan.py --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" -scan "My Gruyere"
