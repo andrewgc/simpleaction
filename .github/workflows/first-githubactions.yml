@@ -2,6 +2,8 @@ name: DAST trigger
 on:
   push:
     branches: [ mydev ]
+
+# Sample reschedule DAST run
 jobs:
   dast_security_scan:
     runs-on: ubuntu-latest 
