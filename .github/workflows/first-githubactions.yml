@@ -2,6 +2,7 @@ name: DAST trigger
 on:
   push:
     branches: [ mydev ]
+# A simple DAST run
 jobs:
   dast_security_scan:
     runs-on: ubuntu-latest 
