@@ -5,8 +5,9 @@ on:
 jobs:
   dast_security_scan:
     runs-on: ubuntu-latest 
-    container:
-    image: docker://wasptree/veracode-dast-scan
     steps:
     - name: DAST
-        run: /bin/sh -c "veracode-dast-scan vid: '${{ secrets.VERACODE_API_ID }}' vkey: '${{ secrets.VERACODE_API_KEY }}' -scan MyGruyere"
+        run: |
+          wget https://gitlab.com/wasptree/veracode-dast-scan/-/archive/latest/veracode-dast-scan-latest.zip
+          unzip veracode-dast-scan-latest.zip && cd veracode-dast-scan-latest
+          python3 veracode_dast_scan.py -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -scan MyGruyere
