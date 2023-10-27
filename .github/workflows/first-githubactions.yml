@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
     - name: DAST
-        run: |
-          wget https://gitlab.com/wasptree/veracode-dast-scan/-/archive/latest/veracode-dast-scan-latest.zip
-          unzip veracode-dast-scan-latest.zip && cd veracode-dast-scan-latest
-          python3 veracode_dast_scan.py -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -scan MyGruyere
+      run: |
+        wget https://gitlab.com/wasptree/veracode-dast-scan/-/archive/latest/veracode-dast-scan-latest.zip
+        unzip veracode-dast-scan-latest.zip && cd veracode-dast-scan-latest
+        python3 veracode_dast_scan.py -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_KEY} -scan MyGruyere
